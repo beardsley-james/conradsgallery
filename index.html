@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Conrad's Art Gallery</title>
+  <link rel="shortcut icon" href="icon.png" type="image/vnd.microsoft.icon">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Comic+Neue&display=swap" rel="stylesheet">
+
+
+  <style type="text/css">
+    body {
+      text-align: center
+    }
+    header {
+      font-family: 'Amatic SC', cursive;
+    }
+    main {
+      display: inline-flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      max-width: 900px
+    }
+    section {
+      padding: 10px 15px 10px 15px;
+      margin: 5px;
+      max-width: 250px;
+      border: 1px solid black;
+      font-family: 'Comic Neue', cursive
+    }
+    img {
+      width: 100%;
+      display: block
+    }
+    p {
+      display: none
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>Conrad's Art Gallery</h1>
+
+    <h2>Direct inquiries to loveless.kelly at gmail dot com</h2>
+  </header>
+
+  <main>
+  </main>
+
+
+  <script type="text/javascript">
+    const gallery = document.getElementsByTagName("main")[0];
+
+    /* Picture item template
+    {
+      title: string, Name of the picture,
+      filename: string, Name of image in images folder, not full file path,
+      description: string, Short description of the image, also used as alternate text for vision-impaired browsers
+    }
+    */
+
+    const catalog = [
+      {
+        title: "Test picture",
+        filename: "test2.png",
+        description: "This is a test picture"
+      },
+      {
+        title: "Test picture",
+        filename: "test.png",
+        description: "This is a test picture"
+      },
+      {
+        title: "Test picture",
+        filename: "test2.png",
+        description: "This is a test picture"
+      },
+      {
+        title: "Test picture",
+        filename: "test.png",
+        description: "This is a test picture"
+      },
+      {
+        title: "Test picture",
+        filename: "test.png",
+        description: "This is a test picture"
+      },
+      {
+        title: "Test picture",
+        filename: "test2.png",
+        description: "This is a test picture"
+      }
+    ]
+
+    function autorun()
+    {
+      catalog.forEach(picture => {
+        let panel = document.createElement("section");
+        let name = document.createElement("h3")
+        name.innerHTML = picture.title;
+        let image = document.createElement("img");
+        image.src = "./images/" + picture.filename;
+        image.alt = picture.description;
+        let description = document.createElement("p")
+        description.innerHTML = picture.description;
+        panel.append(name);
+        panel.append(image);
+        panel.append(description);
+        gallery.append(panel)
+      })
+    }
+
+    if (document.addEventListener) document.addEventListener("DOMContentLoaded", autorun, false);
+    else if (document.attachEvent) document.attachEvent("onreadystatechange", autorun);
+    else window.onload = autorun;
+  </script>
+
+</body>
+</html>
